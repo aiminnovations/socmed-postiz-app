@@ -1,9 +1,10 @@
 # Railway build configuration (aiminnovations customization of the Postiz fork).
+# Rebuild trigger 2026-07-21: custom domain postiz.app.juniperio.com added; re-bake NEXT_PUBLIC_BACKEND_URL
+# (a NEXT_PUBLIC_* value is inlined at Next.js build time, so a var change alone does not update the JS bundle).
 # Postiz is an Nx monorepo. Build with the maintainers' OWN production Dockerfile:
 # `Dockerfile.dev` is the exact file gitroomhq/.github/workflows/build-containers.yml uses to
 # build the official ghcr.io/gitroomhq/postiz-app image. It is named ".dev" upstream but IS the
 # production build. Railway will not auto-detect a non-"Dockerfile" filename, so the path is explicit.
-# This replaces the prior stale, invalid nixpacks-style [phases.setup] block (not valid railway.toml).
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile.dev"
